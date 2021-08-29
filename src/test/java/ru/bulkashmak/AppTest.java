@@ -63,12 +63,14 @@ public class AppTest {
         WebElement themeSwitch = driver.findElement(By.xpath("//li[@id='menu-item-17363']/div"));
         assertNotNull(themeSwitch, "Theme switch doesn't exist");
 
+        String themeSwitchAttribute = themeSwitch.getAttribute("class");
         themeSwitch.click();
-        assertNotNull(driver.findElement(By.xpath("//li[@id='menu-item-17363']/div[@class='wpnm-button style-2']")), "Theme switch button doesn't work");
+        String themeSwitchAttributeNew = themeSwitch.getAttribute("class");
+        assertNotEquals(themeSwitchAttribute, themeSwitchAttributeNew);
     }
 
     public static List<String> dataProvider(){
-        
+
         String strings1 = "https://howtodoinjava.com/java/basics/java-tutorial/";
         String strings2 = "https://howtodoinjava.com/java14/java14-new-features/";
         String strings3 = "https://howtodoinjava.com/java11/features-enhancements/";
